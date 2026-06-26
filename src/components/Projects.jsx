@@ -81,9 +81,10 @@ export default function Projects() {
           <div className={styles.featuredSliderArea}>
             <ImageSlider 
               images={[
-                "/vmart_unity/image27.png", "/vmart_unity/image28.png", "/vmart_unity/image29.png", 
-                "/vmart_unity/image30.png", "/vmart_unity/image31.png", "/vmart_unity/image32.png", 
-                "/vmart_unity/image33.png", "/vmart_unity/image34.png", "/vmart_unity/image35.png", "/vmart_unity/image36.png"
+                "/vmart_unity/image41.png", "/vmart_unity/image39.png", "/vmart_unity/image35.png", 
+                "/vmart_unity/image34.png", "/vmart_unity/image27.png", "/vmart_unity/image29.png", 
+                "/vmart_unity/image31.png", "/vmart_unity/image33.png", "/vmart_unity/image36.png", 
+                "/vmart_unity/image37.png", "/vmart_unity/image38.png"
               ]} 
               interval={4000} 
             />
