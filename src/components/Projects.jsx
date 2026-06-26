@@ -7,6 +7,12 @@ import ImageSlider from './ImageSlider';
 
 const projects = [
   {
+    title: "Smart Agriculture System Using Cisco Packet Tracer",
+    description: "IoT network design for soil monitoring, automated irrigation, sensors, actuators, and remote access.",
+    tags: ["IoT", "Cisco Packet Tracer", "Network Design"],
+    images: ["/iot/image10.png", "/iot/image11.png"]
+  },
+  {
     title: "Fitness Dashboard Using Windows Forms",
     description: "C# Windows Forms dashboard for workout tracking, progress monitoring, and fitness data display.",
     tags: ["C#", "Windows Forms", "Desktop App"],
@@ -53,7 +59,7 @@ const projects = [
     title: "Canva Design & Multimedia Showcase",
     description: "Creative design projects crafted utilizing Canva, featuring dynamic visuals, marketing templates, and multimedia content integration.",
     tags: ["Canva", "Graphic Design", "Multimedia"],
-    images: ["/canva/image46.jpeg", "/canva/1.mp4", "/canva/image47.jpeg"]
+    images: ["/canva/1.mp4", "/canva/image.jpeg", "/canva/image48.jpeg", "/canva/image47.jpeg"]
   }
 ];
 
