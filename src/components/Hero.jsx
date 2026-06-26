@@ -25,7 +25,7 @@ export default function Hero() {
             AI, Full-Stack Web & Mobile Developer
           </p>
           <p className={styles.description}>
-            Specializing in engineering robust web applications, crafting intuitive mobile experiences, and integrating intelligent machine learning models. I build scalable, technology-driven solutions for the future.
+            I build full-stack websites, mobile apps, and machine learning models. I enjoy writing clean code and turning ideas into useful, working applications.
           </p>
           
           <div className={styles.actions}>
