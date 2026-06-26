@@ -1,0 +1,65 @@
+.footer {
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 4rem 0 2rem;
+  margin-top: 4rem;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .footerContent {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.footerBrand h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.footerBrand p {
+  color: var(--color-text-muted);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-main);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.socialIcon:hover {
+  background: rgba(168, 85, 247, 0.2);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-5px);
+}
+
+.footerBottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}

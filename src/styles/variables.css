@@ -1,0 +1,45 @@
+:root {
+  --color-bg: #030014; /* Deep, rich cosmic background */
+  --color-surface: rgba(255, 255, 255, 0.05); /* Increased base opacity */
+  --color-surface-hover: rgba(255, 255, 255, 0.1);
+  --color-primary: #c084fc; /* Brighter, more electric purple */
+  --color-secondary: #22d3ee; /* Brighter neon cyan */
+  --color-accent: #f43f5e;
+  
+  --color-text-main: #ffffff; /* Pure white for max readability */
+  --color-text-muted: #ffffff; /* Pure white for all text as requested */
+  
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  --border-radius: 20px;
+  --border-light: 1px solid rgba(255, 255, 255, 0.15); /* Stronger border */
+  --border-primary: 1px solid rgba(192, 132, 252, 0.5);
+  
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--color-surface);
+  backdrop-filter: blur(24px); /* Increased blur for premium feel */
+  -webkit-backdrop-filter: blur(24px);
+  border: var(--border-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Add soft drop shadow */
+}
+
+.glass:hover {
+  background: var(--color-surface-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 40px rgba(192, 132, 252, 0.2);
+}
+
+/* Text Gradient utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

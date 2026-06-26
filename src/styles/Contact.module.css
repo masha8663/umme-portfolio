@@ -1,0 +1,136 @@
+.contactSection {
+  position: relative;
+}
+
+.contactWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (min-width: 992px) {
+  .contactWrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.contactInfo {
+  flex: 1;
+}
+
+.contactInfo h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-main);
+}
+
+.contactDesc {
+  color: var(--color-text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  max-width: 500px;
+}
+
+.infoItems {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.iconBox {
+  width: 50px;
+  height: 50px;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+.infoItem h4 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.infoItem a, .infoItem span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  transition: color 0.2s ease;
+}
+
+.infoItem a:hover {
+  color: var(--color-primary);
+}
+
+.contactFormContainer {
+  flex: 1.2;
+  padding: 3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.1);
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.successMessage {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}

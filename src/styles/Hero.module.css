@@ -1,0 +1,137 @@
+.heroSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 1300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 4rem;
+  z-index: 2;
+}
+
+@media (min-width: 992px) {
+  .heroContent {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.textContent {
+  flex: 1;
+  max-width: 650px;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .textContent {
+    text-align: left;
+  }
+}
+
+.aiBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 30px;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
+}
+
+.greeting {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: -2px;
+}
+
+@media (min-width: 768px) {
+  .name {
+    font-size: 6rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 1.5rem;
+  font-family: var(--font-heading);
+}
+
+.description {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  margin-bottom: 3rem;
+  max-width: 550px;
+  margin-inline: auto;
+  line-height: 1.8;
+}
+
+@media (min-width: 992px) {
+  .description {
+    margin-inline: 0;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 992px) {
+  .actions {
+    justify-content: flex-start;
+  }
+}
+
+.canvasContainer {
+  flex: 1;
+  height: 400px;
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .canvasContainer {
+    height: 550px;
+  }
+}
+
+.canvasGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(168,85,247,0.2) 0%, rgba(6,182,212,0.1) 50%, rgba(0,0,0,0) 70%);
+  filter: blur(50px);
+  z-index: -1;
+  pointer-events: none;
+}
