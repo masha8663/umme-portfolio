@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Send, Mail, Phone, MapPin } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import styles from '../styles/Contact.module.css';
 
@@ -54,31 +54,53 @@ export default function Contact() {
                 </div>
               </div>
             </div>
+            <div className={styles.socialSection}>
+              <h4 className={styles.socialHeading}>Connect With Me</h4>
+              <div className={styles.socialGrid}>
+                <a href="mailto:ummerubab8663@gmail.com" className={`btn btn-outline ${styles.socialBtn}`}>
+                  <Mail size={18} /> Email
+                </a>
+                <a href="tel:+923315303175" className={`btn btn-outline ${styles.socialBtn}`}>
+                  <Phone size={18} /> Phone
+                </a>
+                <a href="https://www.linkedin.com/in/umm-e-rubab-487070353" target="_blank" rel="noreferrer" className={`btn btn-outline ${styles.socialBtn}`}>
+                  <FaLinkedin size={18} /> LinkedIn
+                </a>
+                <a href="https://github.com/masha8663" target="_blank" rel="noreferrer" className={`btn btn-outline ${styles.socialBtn}`}>
+                  <FaGithub size={18} /> GitHub
+                </a>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div 
-            className={`glass ${styles.contactSocialContainer}`}
+            className={`glass ${styles.contactFormContainer}`}
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3>Connect With Me</h3>
-            <p className={styles.socialDesc}>Find me on these platforms or reach out directly.</p>
-            <div className={styles.socialGrid}>
-              <a href="mailto:ummerubab8663@gmail.com" className={`btn btn-outline ${styles.socialBtn}`}>
-                <Mail size={22} /> Email Me
-              </a>
-              <a href="tel:+923315303175" className={`btn btn-outline ${styles.socialBtn}`}>
-                <Phone size={22} /> Call Me
-              </a>
-              <a href="https://www.linkedin.com/in/umm-e-rubab-487070353" target="_blank" rel="noreferrer" className={`btn btn-outline ${styles.socialBtn}`}>
-                <FaLinkedin size={22} /> LinkedIn
-              </a>
-              <a href="https://github.com/masha8663" target="_blank" rel="noreferrer" className={`btn btn-outline ${styles.socialBtn}`}>
-                <FaGithub size={22} /> GitHub
-              </a>
-            </div>
+            <form action="https://formsubmit.co/ummerubab8663@gmail.com" method="POST" className={styles.form}>
+              <input type="hidden" name="_subject" value="New Submission from Portfolio!" />
+              <input type="hidden" name="_captcha" value="false" />
+              
+              <div className={styles.inputGroup}>
+                <label htmlFor="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe" />
+              </div>
+              <div className={styles.inputGroup}>
+                <label htmlFor="email">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="john@example.com" />
+              </div>
+              <div className={styles.inputGroup}>
+                <label htmlFor="message">Your Message</label>
+                <textarea id="message" name="message" required rows="5" placeholder="Hi Umme, I'd like to talk about..."></textarea>
+              </div>
+              
+              <button type="submit" className={`btn btn-primary ${styles.submitBtn}`}>
+                Send Message <Send size={18} />
+              </button>
+            </form>
           </motion.div>
         </div>
       </div>
