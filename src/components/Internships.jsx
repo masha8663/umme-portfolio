@@ -26,7 +26,7 @@ const internships = [
     duration: "Jun 2024 - Jul 2024",
     description: "Conducted deep-dive studies into LRUs, avionics, radar technology, and complex aircraft systems within a highly technical aerospace environment.",
     icon: <Building2 size={24} />,
-    color: "#f43f5e"
+    color: "#10b981"
   }
 ];
 
