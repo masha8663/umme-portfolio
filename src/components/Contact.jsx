@@ -1,18 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import styles from '../styles/Contact.module.css';
 
 export default function Contact() {
-  const [formStatus, setFormStatus] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Simulate form submission
-    setFormStatus('Message sent successfully! I will get back to you soon.');
-    e.target.reset();
-    setTimeout(() => setFormStatus(''), 5000);
-  };
 
   return (
     <section id="contact" className={`section ${styles.contactSection}`}>
@@ -65,32 +57,28 @@ export default function Contact() {
           </motion.div>
 
           <motion.div 
-            className={`glass ${styles.contactFormContainer}`}
+            className={`glass ${styles.contactSocialContainer}`}
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className={styles.form}>
-              <div className={styles.inputGroup}>
-                <label htmlFor="name">Your Name</label>
-                <input type="text" id="name" required placeholder="John Doe" />
-              </div>
-              <div className={styles.inputGroup}>
-                <label htmlFor="email">Your Email</label>
-                <input type="email" id="email" required placeholder="john@example.com" />
-              </div>
-              <div className={styles.inputGroup}>
-                <label htmlFor="message">Your Message</label>
-                <textarea id="message" required rows="5" placeholder="Hi Umme, I'd like to talk about..."></textarea>
-              </div>
-              
-              <button type="submit" className={`btn btn-primary ${styles.submitBtn}`}>
-                Send Message <Send size={18} />
-              </button>
-              
-              {formStatus && <div className={styles.successMessage}>{formStatus}</div>}
-            </form>
+            <h3>Connect With Me</h3>
+            <p className={styles.socialDesc}>Find me on these platforms or reach out directly.</p>
+            <div className={styles.socialGrid}>
+              <a href="mailto:ummerubab8663@gmail.com" className={`btn btn-outline ${styles.socialBtn}`}>
+                <Mail size={22} /> Email Me
+              </a>
+              <a href="tel:+923315303175" className={`btn btn-outline ${styles.socialBtn}`}>
+                <Phone size={22} /> Call Me
+              </a>
+              <a href="https://www.linkedin.com/in/umm-e-rubab-487070353" target="_blank" rel="noreferrer" className={`btn btn-outline ${styles.socialBtn}`}>
+                <FaLinkedin size={22} /> LinkedIn
+              </a>
+              <a href="https://github.com/masha8663" target="_blank" rel="noreferrer" className={`btn btn-outline ${styles.socialBtn}`}>
+                <FaGithub size={22} /> GitHub
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>

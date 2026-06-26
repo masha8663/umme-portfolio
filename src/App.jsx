@@ -6,7 +6,6 @@ import Skills from './components/Skills';
 import Internships from './components/Internships';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
 import './styles/variables.css';
 import './styles/global.css';
 
@@ -23,7 +22,6 @@ function App() {
         <Projects />
         <Contact />
       </main>
-      <Footer />
     </>
   );
 }

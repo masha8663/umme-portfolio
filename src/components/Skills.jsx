@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styles from '../styles/Skills.module.css';
 import { FaJava, FaPython, FaPhp, FaReact, FaHtml5, FaCss3Alt, FaLaravel, FaDocker, FaGitAlt, FaGithub, FaUnity, FaCode, FaMobileAlt, FaVrCardboard } from 'react-icons/fa';
-import { SiKotlin, SiCplusplus, SiJavascript, SiVite, SiMysql, SiAndroidstudio, SiFirebase, SiBlender, SiPostman, SiDigitalocean, SiCisco, SiCanva } from 'react-icons/si';
+import { SiKotlin, SiCplusplus, SiJavascript, SiVite, SiMysql, SiAndroidstudio, SiFirebase, SiBlender, SiPostman, SiDigitalocean, SiCisco, SiCanva, SiCsharp } from 'react-icons/si';
 import { TbApi } from 'react-icons/tb';
 
 const skillCategories = [
@@ -14,6 +14,7 @@ const skillCategories = [
       { name: "PHP", icon: <FaPhp /> },
       { name: "Kotlin", icon: <SiKotlin /> },
       { name: "C++", icon: <SiCplusplus /> },
+      { name: "C#", icon: <SiCsharp /> },
       { name: "JavaScript", icon: <SiJavascript /> }
     ]
   },
