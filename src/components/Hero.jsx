@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, ArrowRight, BrainCircuit } from 'lucide-react';
+import { FileText, ArrowRight } from 'lucide-react';
 import HeroParticles from './HeroParticles';
 import styles from '../styles/Hero.module.css';
 
@@ -14,10 +14,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className={styles.aiBadge}>
-            <BrainCircuit size={16} />
-            <span>AI & Web Innovation Focus</span>
-          </div>
           
           <h2 className={styles.greeting}>Hi, I am</h2>
           <h1 className={styles.name}>Umm E <span className="text-gradient">Rubab</span></h1>
