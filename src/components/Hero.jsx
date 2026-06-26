@@ -22,11 +22,10 @@ export default function Hero() {
           <h2 className={styles.greeting}>Hi, I am</h2>
           <h1 className={styles.name}>Umm E <span className="text-gradient">Rubab</span></h1>
           <p className={styles.subtitle}>
-            AI & Full-Stack Web Developer
+            AI, Full-Stack Web & Mobile Developer
           </p>
           <p className={styles.description}>
-            Specialized in engineering robust full-stack web applications and integrating intelligent 
-            machine learning models. Building the future of scalable software and AI-driven solutions.
+            Specializing in engineering robust web applications, crafting intuitive mobile experiences, and integrating intelligent machine learning models. I build scalable, technology-driven solutions for the future.
           </p>
           
           <div className={styles.actions}>

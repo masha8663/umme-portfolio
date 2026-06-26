@@ -42,10 +42,7 @@ export default function About() {
               
               <div className={styles.bio}>
                 <p>
-                  I am a highly driven software engineering student specializing in Full-Stack Web Development and Artificial Intelligence.
-                </p>
-                <p>
-                  My technical expertise lies in building scalable web architectures using React.js and Laravel, alongside designing intelligent machine learning algorithms with Python. I thrive on solving complex backend challenges, crafting seamless user interfaces, and leveraging AI models to build innovative, data-driven solutions for the modern web.
+                  Internships and real-world projects. Proficient in Laravel, React.js, PHP, Java, Python, Kotlin, and Unity 3D, with a passion for developing innovative, user-focused, and technology-driven solutions.
                 </p>
               </div>
 
