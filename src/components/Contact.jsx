@@ -1,10 +1,51 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 import styles from '../styles/Contact.module.css';
 
+// ─── EmailJS Config ─────────────────────────────────────────────────────────
+// Fill these in after setting up EmailJS for Umme's account:
+// 1. Sign up at https://www.emailjs.com/ with ummerubab8663@gmail.com
+// 2. Add Gmail service → copy Service ID below
+// 3. Create email template → copy Template ID below
+// 4. Account → API Keys → copy Public Key below
+const EMAILJS_SERVICE_ID  = 'service_0z8ltya';
+const EMAILJS_TEMPLATE_ID = 'template_zz5u4k6';
+const EMAILJS_PUBLIC_KEY  = 'g0Fdyh_zw5JDyaqgM';
+// ─────────────────────────────────────────────────────────────────────────────
+
+const STATUS = { IDLE: 'idle', SENDING: 'sending', SUCCESS: 'success', ERROR: 'error' };
+
 export default function Contact() {
+  const formRef = useRef();
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState(STATUS.IDLE);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus(STATUS.SENDING);
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        form,
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus(STATUS.SUCCESS);
+      setForm({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus(STATUS.IDLE), 6000);
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setStatus(STATUS.ERROR);
+      setTimeout(() => setStatus(STATUS.IDLE), 5000);
+    }
+  };
 
   return (
     <section id="contact" className={`section ${styles.contactSection}`}>
@@ -80,25 +121,73 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <form action="https://formsubmit.co/ummerubab8663@gmail.com" method="POST" className={styles.form}>
-              <input type="hidden" name="_subject" value="New Submission from Portfolio!" />
-              <input type="hidden" name="_captcha" value="false" />
-              
+            <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
+
               <div className={styles.inputGroup}>
                 <label htmlFor="name">Your Name</label>
-                <input type="text" id="name" name="name" required placeholder="John Doe" />
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="John Doe"
+                  value={form.name}
+                  onChange={handleChange}
+                  disabled={status === STATUS.SENDING}
+                />
               </div>
+
               <div className={styles.inputGroup}>
                 <label htmlFor="email">Your Email</label>
-                <input type="email" id="email" name="email" required placeholder="john@example.com" />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="john@example.com"
+                  value={form.email}
+                  onChange={handleChange}
+                  disabled={status === STATUS.SENDING}
+                />
               </div>
+
               <div className={styles.inputGroup}>
                 <label htmlFor="message">Your Message</label>
-                <textarea id="message" name="message" required rows="5" placeholder="Hi Umme, I'd like to talk about..."></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="5"
+                  placeholder="Hi Umme, I'd like to talk about..."
+                  value={form.message}
+                  onChange={handleChange}
+                  disabled={status === STATUS.SENDING}
+                />
               </div>
-              
-              <button type="submit" className={`btn btn-primary ${styles.submitBtn}`}>
-                Send Message <Send size={18} />
+
+              {status === STATUS.SUCCESS && (
+                <div className={styles.feedbackSuccess}>
+                  ✅ Message sent! I'll get back to you soon.
+                </div>
+              )}
+              {status === STATUS.ERROR && (
+                <div className={styles.feedbackError}>
+                  ❌ Something went wrong. Please email me directly at ummerubab8663@gmail.com
+                </div>
+              )}
+
+              <button
+                type="submit"
+                className={`btn btn-primary ${styles.submitBtn}`}
+                disabled={status === STATUS.SENDING || status === STATUS.SUCCESS}
+              >
+                {status === STATUS.SENDING ? (
+                  <><span className={styles.btnSpinner} /> Sending...</>
+                ) : status === STATUS.SUCCESS ? (
+                  <>✅ Sent!</>
+                ) : (
+                  <>Send Message <Send size={18} /></>
+                )}
               </button>
             </form>
           </motion.div>
