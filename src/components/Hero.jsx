@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, FileText, Github, Linkedin, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight, FileText, MapPin, Sparkles } from 'lucide-react';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import styles from '../styles/Hero.module.css';
 
