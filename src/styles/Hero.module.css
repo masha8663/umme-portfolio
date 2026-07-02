@@ -20,29 +20,23 @@
 }
 
 /* ── Floating Bubbles ─────────────────────────────────────── */
-.bubblesArea {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
 .bubble {
   position: absolute;
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 0.9rem;
-  background: rgba(13, 20, 35, 0.7);
-  border: 1px solid rgba(var(--bcolor, 168,85,247), 0.3);
+  padding: 0.45rem 1.1rem;
+  background: rgba(13, 20, 35, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 100px;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   color: var(--text-secondary);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
   white-space: nowrap;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  z-index: 10;
 }
 
 .bubbleDot {
@@ -50,6 +44,7 @@
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
+  box-shadow: 0 0 8px var(--bcolor, #a855f7);
 }
 
 /* ── Text Column ─────────────────────────────────────────── */
@@ -235,9 +230,9 @@
 }
 
 .imageFrame {
-  width: 280px;
-  height: 320px;
-  border-radius: 50% 50% 48% 52% / 50% 50% 48% 52%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
   overflow: hidden;
   position: relative;
   z-index: 2;
@@ -308,11 +303,11 @@
   .badge, .location, .socials { margin: 0 auto; justify-content: center; }
   .ctaRow { justify-content: center; }
   .desc { margin: 0 auto; }
-  .bubblesArea { display: none; }
 }
 
 @media (max-width: 640px) {
-  .imageFrame { width: 220px; height: 260px; }
+  .imageFrame { width: 220px; height: 220px; }
   .imageRing  { width: 280px; height: 280px; }
   .ctaRow { flex-direction: column; align-items: center; }
+  .bubble { font-size: 0.7rem; padding: 0.35rem 0.8rem; }
 }

@@ -41,40 +41,17 @@ function Typewriter() {
   );
 }
 
-/* Floating skill bubbles like the reference */
+/* Floating skill bubbles around the profile image */
 const BUBBLES = [
-  { label: 'React',     x: '72%', y: '10%', color: '#61DAFB', delay: 0    },
-  { label: 'Python',    x: '85%', y: '35%', color: '#3776AB', delay: 0.4  },
-  { label: 'Unity 3D',  x: '68%', y: '58%', color: '#a855f7', delay: 0.8  },
-  { label: 'Laravel',   x: '82%', y: '72%', color: '#FF2D20', delay: 0.2  },
-  { label: 'Kotlin',    x: '60%', y: '82%', color: '#7F52FF', delay: 0.6  },
-  { label: 'Flutter',   x: '90%', y: '55%', color: '#54C5F8', delay: 1.0  },
+  { label: 'Python',  x: '82%', y: '12%', color: '#3776AB', delay: 0 },
+  { label: 'Flutter', x: '98%', y: '48%', color: '#54C5F8', delay: 0.4 },
+  { label: 'Laravel', x: '78%', y: '82%', color: '#FF2D20', delay: 0.8 },
+  { label: 'Kotlin',  x: '-5%', y: '85%', color: '#7F52FF', delay: 1.2 },
 ];
 
 export default function Hero() {
   return (
     <section className={styles.hero} id="home">
-      {/* Floating skill bubbles */}
-      <div className={styles.bubblesArea} aria-hidden>
-        {BUBBLES.map(b => (
-          <motion.div
-            key={b.label}
-            className={styles.bubble}
-            style={{ left: b.x, top: b.y, '--bcolor': b.color }}
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
-            transition={{
-              opacity: { delay: b.delay, duration: 0.5 },
-              scale:   { delay: b.delay, duration: 0.5 },
-              y: { duration: 4 + Math.random(), repeat: Infinity, ease: 'easeInOut', delay: b.delay + 0.5 },
-            }}
-          >
-            <span className={styles.bubbleDot} style={{ background: b.color }} />
-            {b.label}
-          </motion.div>
-        ))}
-      </div>
-
       <div className={`container ${styles.heroInner}`}>
         {/* ── Left: Text ── */}
         <motion.div
@@ -169,6 +146,25 @@ export default function Hero() {
                 </linearGradient>
               </defs>
             </svg>
+
+            {/* Floating skill bubbles */}
+            {BUBBLES.map(b => (
+              <motion.div
+                key={b.label}
+                className={styles.bubble}
+                style={{ left: b.x, top: b.y, '--bcolor': b.color }}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
+                transition={{
+                  opacity: { delay: b.delay, duration: 0.5 },
+                  scale:   { delay: b.delay, duration: 0.5 },
+                  y: { duration: 4 + Math.random(), repeat: Infinity, ease: 'easeInOut', delay: b.delay + 0.5 },
+                }}
+              >
+                <span className={styles.bubbleDot} style={{ background: b.color }} />
+                {b.label}
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
