@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Code2, Cpu, Building2, Calendar, MapPin, Sparkles } from 'lucide-react';
+import { Briefcase, Code2, Cpu, Building2, Calendar, MapPin, Sparkles, ChevronRight } from 'lucide-react';
 import styles from '../styles/Internships.module.css';
 
 const internships = [
@@ -10,17 +10,17 @@ const internships = [
     location: 'On-site',
     duration: '2025',
     type: 'Full-Stack',
-    icon: <Code2 size={22} />,
-    color: '#c084fc',
+    icon: <Code2 size={24} />,
+    color: '#a855f7',
     description:
-      'Architected and improved core website features using React, Vite, Laravel, and PHP. Led responsive UI developments and integrated complex backend APIs. Managed GitHub repositories and executed rigorous Postman API testing.',
+      'Architected and improved core website features using React, Vite, Laravel, and PHP. Led responsive UI developments and integrated complex backend APIs.',
     highlights: [
-      'Built full-stack web features with React + Laravel',
-      'Integrated and tested REST APIs via Postman',
+      'Built full-stack web features with React + Laravel + Vite',
+      'Integrated and tested REST APIs using Postman',
       'Managed version control workflows on GitHub',
       'Delivered responsive, mobile-first UI components',
     ],
-    tags: ['React.js', 'Vite', 'Laravel', 'PHP', 'MySQL', 'REST APIs'],
+    tags: ['React.js', 'Vite', 'Laravel', 'PHP', 'MySQL', 'REST APIs', 'Postman'],
   },
   {
     role: 'Technology Intern',
@@ -28,14 +28,14 @@ const internships = [
     location: 'On-site',
     duration: 'Jul 2025 – Sep 2025',
     type: 'R&D / VR',
-    icon: <Cpu size={22} />,
-    color: '#22d3ee',
+    icon: <Cpu size={24} />,
+    color: '#06b6d4',
     description:
       'Spearheaded advanced R&D projects focusing on Unity 3D, Figma, IoT devices, and VR systems. Explored digital twin concepts and developed real-time interactive project architectures.',
     highlights: [
-      'Developed VR prototypes using Unity 3D & C#',
+      'Developed VR prototypes using Unity 3D and C#',
       'Researched IoT device integration frameworks',
-      'Designed digital twin architectures',
+      'Designed digital twin architectures for real-time systems',
       'Created interactive UI/UX mockups in Figma',
     ],
     tags: ['Unity 3D', 'C#', 'Figma', 'IoT', 'VR Systems', 'Blender'],
@@ -46,24 +46,25 @@ const internships = [
     location: 'Kamra, Punjab',
     duration: 'Jun 2024 – Jul 2024',
     type: 'Aerospace',
-    icon: <Building2 size={22} />,
+    icon: <Building2 size={24} />,
     color: '#4ade80',
     description:
       'Conducted deep-dive studies into LRUs, avionics, radar technology, and complex aircraft systems within a highly technical aerospace environment.',
     highlights: [
-      'Studied Line Replaceable Units (LRUs) in aircraft',
-      'Explored radar & avionics technology systems',
+      'Studied Line Replaceable Units (LRUs) in aircraft systems',
+      'Explored radar & avionics technology in detail',
       'Reviewed aerospace safety and testing protocols',
-      'Gained exposure to defense-grade engineering',
+      'Gained hands-on exposure to defense-grade engineering',
     ],
-    tags: ['Avionics', 'Radar Systems', 'IoT', 'Aerospace Engineering'],
+    tags: ['Avionics', 'Radar Systems', 'IoT', 'Aerospace Engineering', 'LRUs'],
   },
 ];
 
 export default function Internships() {
   return (
-    <section id="internships" className={`section ${styles.internshipsSection}`}>
+    <section id="internships" className={`section ${styles.section}`}>
       <div className="container">
+
         {/* Header */}
         <motion.div
           className="section-header"
@@ -72,7 +73,7 @@ export default function Internships() {
           viewport={{ once: true }}
         >
           <span className="section-eyebrow">
-            <Sparkles size={13} /> Work Experience
+            <Sparkles size={12} /> Work Experience
           </span>
           <h2 className="section-title">
             Professional <span className="text-gradient">Internships</span>
@@ -83,96 +84,84 @@ export default function Internships() {
           <div className="section-divider" />
         </motion.div>
 
-        {/* Timeline */}
-        <div className={styles.timeline}>
+        {/* Cards */}
+        <div className={styles.cardsList}>
           {internships.map((item, idx) => (
             <motion.div
               key={idx}
-              className={styles.timelineEntry}
-              initial={{ opacity: 0, x: idx % 2 === 0 ? -40 : 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className={`glass ${styles.card}`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.65, delay: idx * 0.15 }}
+              transition={{ duration: 0.55, delay: idx * 0.12 }}
+              whileHover={{ y: -4, borderColor: `${item.color}40` }}
+              style={{ '--accent': item.color }}
             >
-              {/* Timeline connector */}
-              <div className={styles.timelineCenter}>
+              {/* Top accent line */}
+              <div className={styles.accentLine} style={{ background: `linear-gradient(90deg, ${item.color}, transparent)` }} />
+
+              {/* Card Header Row */}
+              <div className={styles.cardHeader}>
+                {/* Icon */}
                 <div
-                  className={styles.timelineIcon}
-                  style={{
-                    color: item.color,
-                    borderColor: item.color,
-                    boxShadow: `0 0 24px ${item.color}40`,
-                    background: `${item.color}12`,
-                  }}
+                  className={styles.iconBox}
+                  style={{ color: item.color, background: `${item.color}15`, border: `1px solid ${item.color}35` }}
                 >
                   {item.icon}
                 </div>
-                {idx < internships.length - 1 && (
-                  <div
-                    className={styles.timelineLine}
-                    style={{ background: `linear-gradient(180deg, ${item.color}60, ${internships[idx + 1].color}30)` }}
-                  />
-                )}
+
+                {/* Title block */}
+                <div className={styles.titleBlock}>
+                  <h3 className={styles.role}>{item.role}</h3>
+                  <p className={styles.company} style={{ color: item.color }}>
+                    {item.company}
+                  </p>
+                </div>
+
+                {/* Meta badges (right side) */}
+                <div className={styles.metaBadges}>
+                  <span
+                    className={styles.typeBadge}
+                    style={{ color: item.color, background: `${item.color}12`, border: `1px solid ${item.color}30` }}
+                  >
+                    {item.type}
+                  </span>
+                  <div className={styles.metaItem}>
+                    <Calendar size={13} />
+                    <span>{item.duration}</span>
+                  </div>
+                  <div className={styles.metaItem}>
+                    <MapPin size={13} />
+                    <span>{item.location}</span>
+                  </div>
+                </div>
               </div>
 
-              {/* Card */}
-              <motion.div
-                className={`glass ${styles.timelineCard}`}
-                whileHover={{ y: -4, boxShadow: `0 20px 50px ${item.color}20` }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Card Top */}
-                <div className={styles.cardTop}>
-                  <div className={styles.cardMeta}>
-                    <span
-                      className={styles.typeBadge}
-                      style={{ color: item.color, background: `${item.color}15`, borderColor: `${item.color}30` }}
-                    >
-                      {item.type}
-                    </span>
-                    <div className={styles.metaRow}>
-                      <Calendar size={13} />
-                      <span>{item.duration}</span>
-                    </div>
-                    <div className={styles.metaRow}>
-                      <MapPin size={13} />
-                      <span>{item.location}</span>
-                    </div>
-                  </div>
+              {/* Description */}
+              <p className={styles.desc}>{item.description}</p>
 
-                  <div>
-                    <h3 className={styles.roleTitle}>{item.role}</h3>
-                    <h4 className={styles.companyName} style={{ color: item.color }}>
-                      @ {item.company}
-                    </h4>
-                  </div>
-                </div>
+              {/* Highlights */}
+              <ul className={styles.highlights}>
+                {item.highlights.map((h, hi) => (
+                  <li key={hi} className={styles.highlight}>
+                    <ChevronRight size={14} style={{ color: item.color, flexShrink: 0 }} />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
 
-                <p className={styles.cardDesc}>{item.description}</p>
-
-                {/* Highlights */}
-                <ul className={styles.highlights}>
-                  {item.highlights.map((h, hi) => (
-                    <li key={hi} className={styles.highlightItem}>
-                      <span className={styles.highlightDot} style={{ background: item.color }} />
-                      {h}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Tags */}
-                <div className={styles.tagRow}>
-                  {item.tags.map((tag, ti) => (
-                    <span
-                      key={ti}
-                      className={styles.techTag}
-                      style={{ color: item.color, borderColor: `${item.color}25`, background: `${item.color}08` }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
+              {/* Tech Tags */}
+              <div className={styles.tags}>
+                {item.tags.map((tag, ti) => (
+                  <span
+                    key={ti}
+                    className={styles.tag}
+                    style={{ color: item.color, background: `${item.color}08`, border: `1px solid ${item.color}25` }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
