@@ -1,44 +1,73 @@
 :root {
-  --color-bg: #030014; /* Deep, rich cosmic background */
-  --color-surface: rgba(255, 255, 255, 0.05); /* Increased base opacity */
-  --color-surface-hover: rgba(255, 255, 255, 0.1);
-  --color-primary: #c084fc; /* Brighter, more electric purple */
-  --color-secondary: #22d3ee; /* Brighter neon cyan */
-  --color-accent: #f43f5e;
-  
-  --color-text-main: #ffffff; /* Pure white for max readability */
-  --color-text-muted: #ffffff; /* Pure white for all text as requested */
-  
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-  
+  /* Core Colors */
+  --color-bg: #050816;
+  --color-bg-secondary: #0a0f2e;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-surface-hover: rgba(255, 255, 255, 0.08);
+  --color-surface-strong: rgba(255, 255, 255, 0.07);
+
+  /* Brand Palette */
+  --color-primary: #c084fc;       /* Electric violet */
+  --color-secondary: #22d3ee;     /* Neon cyan */
+  --color-accent: #f472b6;        /* Hot pink */
+  --color-gold: #fbbf24;          /* Amber */
+
+  /* Text */
+  --color-text-main: #f8fafc;
+  --color-text-sub: #cbd5e1;
+  --color-text-muted: #94a3b8;
+
+  /* Fonts */
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Borders */
   --border-radius: 20px;
-  --border-light: 1px solid rgba(255, 255, 255, 0.15); /* Stronger border */
-  --border-primary: 1px solid rgba(192, 132, 252, 0.5);
-  
+  --border-radius-sm: 12px;
+  --border-light: 1px solid rgba(255, 255, 255, 0.08);
+  --border-primary: 1px solid rgba(192, 132, 252, 0.3);
+  --border-cyan: 1px solid rgba(34, 211, 238, 0.3);
+
+  /* Shadows */
+  --shadow-glow-purple: 0 0 30px rgba(192, 132, 252, 0.25);
+  --shadow-glow-cyan: 0 0 30px rgba(34, 211, 238, 0.25);
+  --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.5);
+
+  /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Glassmorphism utility */
+/* ── Glassmorphism Card ──────────────────────────────────────────────── */
 .glass {
   background: var(--color-surface);
-  backdrop-filter: blur(24px); /* Increased blur for premium feel */
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: var(--border-light);
   border-radius: var(--border-radius);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Add soft drop shadow */
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-slow);
 }
 
 .glass:hover {
   background: var(--color-surface-hover);
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 12px 40px rgba(192, 132, 252, 0.2);
+  border-color: rgba(192, 132, 252, 0.2);
+  box-shadow: 0 16px 50px rgba(192, 132, 252, 0.15), var(--shadow-card);
+  transform: translateY(-2px);
 }
 
-/* Text Gradient utility */
+/* ── Text Gradient ───────────────────────────────────────────────────── */
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-pink {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

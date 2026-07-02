@@ -1,127 +1,186 @@
-.internshipsSection {
-  position: relative;
-}
+.internshipsSection { overflow: hidden; }
 
+/* ── Timeline ────────────────────────────────────────────────────────── */
 .timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   position: relative;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
-  padding-left: 40px;
 }
 
-@media (min-width: 768px) {
-  .timeline {
-    padding-left: 0;
-  }
+.timelineEntry {
+  display: grid;
+  grid-template-columns: 1fr 70px 1fr;
+  gap: 0;
+  align-items: flex-start;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 20px;
-  width: 4px;
-  background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary), var(--color-accent));
-  border-radius: 4px;
-  opacity: 0.3;
+.timelineEntry:nth-child(even) .timelineCard {
+  grid-column: 3;
 }
 
-@media (min-width: 768px) {
-  .timeline::before {
-    left: 40px;
-  }
-}
-
-.timelineItem {
-  position: relative;
-  margin-bottom: 4rem;
+/* Center: icon + line */
+.timelineCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  z-index: 2;
 }
 
 .timelineIcon {
-  position: absolute;
-  top: 0;
-  left: -40px;
-  width: 50px;
-  height: 50px;
-  background: var(--color-bg);
-  border: 3px solid;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
+  border: 2px solid;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   z-index: 2;
+  position: relative;
   transition: transform 0.3s ease;
 }
 
-@media (min-width: 768px) {
-  .timelineIcon {
-    left: -25px;
-    width: 60px;
-    height: 60px;
-  }
+.timelineEntry:hover .timelineIcon { transform: scale(1.08); }
+
+.timelineLine {
+  width: 2px;
+  flex: 1;
+  min-height: 60px;
+  margin-top: 4px;
+  border-radius: 2px;
 }
 
-.timelineItem:hover .timelineIcon {
-  transform: scale(1.1);
+/* Card */
+.timelineCard {
+  padding: 1.75rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
 }
 
-.timelineContent {
-  padding: 2.5rem;
-  margin-left: 20px;
-  transition: transform 0.3s ease;
+.timelineEntry:nth-child(odd) .timelineCard {
+  margin-right: 1rem;
 }
 
-@media (min-width: 768px) {
-  .timelineContent {
-    margin-left: 60px;
-    padding: 3rem;
-  }
+.timelineEntry:nth-child(even) .timelineCard {
+  margin-left: 1rem;
 }
 
-.timelineContent:hover {
-  transform: translateX(10px);
-}
-
-.contentHeader {
+/* Card content */
+.cardTop {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
-  .contentHeader {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-}
-
-.titleGroup h3 {
-  font-size: 1.6rem;
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
   margin-bottom: 0.25rem;
-  color: var(--color-text-main);
 }
 
-.company {
-  font-size: 1.1rem;
+.typeBadge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.72rem;
   font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  border: 1px solid;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}
+
+.roleTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-main);
   margin: 0;
 }
 
-.duration {
+.companyName {
   font-size: 0.95rem;
   font-weight: 600;
-  padding: 0.4rem 1rem;
-  border-radius: 30px;
-  display: inline-block;
-  align-self: flex-start;
-  font-family: var(--font-heading);
+  margin: 0.1rem 0 0;
 }
 
-.timelineContent p {
+.cardDesc {
+  font-size: 0.88rem;
   color: var(--color-text-muted);
-  font-size: 1.1rem;
-  line-height: 1.8;
+  line-height: 1.75;
+  margin-bottom: 1.1rem;
+}
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.1rem;
+}
+
+.highlightItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--color-text-sub);
+}
+
+.highlightDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.techTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.7rem;
+  border-radius: 100px;
+  font-size: 0.74rem;
+  font-weight: 500;
+  font-family: var(--font-mono);
+  border: 1px solid;
+}
+
+/* ── Responsive: Stack on mobile ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .timelineEntry {
+    grid-template-columns: 48px 1fr;
+    gap: 1rem;
+  }
+
+  .timelineCenter {
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 1.75rem;
+  }
+
+  .timelineCard {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0.75rem 0 !important;
+  }
+
+  .timelineIcon { width: 44px; height: 44px; }
 }
